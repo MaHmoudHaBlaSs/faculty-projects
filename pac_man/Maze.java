@@ -59,6 +59,10 @@ public class Maze {
         int[] middle= {1,3,7,17,15,11};
         for(int i=0;i<middle.length;i++)
             grid[9][middle[i]] = Cell.WALL;
+        grid[2][9] = Cell.EMPTY_SPACE;
+        grid[8][9] = Cell.EMPTY_SPACE;
+        grid[10][9] = Cell.EMPTY_SPACE;
+        grid[16][9] = Cell.EMPTY_SPACE;
 
     }
     private void placePellets() {
@@ -66,7 +70,7 @@ public class Maze {
         // Place pellets randomly in the maze
         for (int i = 1; i < ROWS - 1; i++) {
             for (int j = 1; j < COLS - 1; j++) {
-                if (grid[i][j] != Cell.WALL && random.nextDouble() < 0.3) {
+                if (grid[i][j] != Cell.WALL) {
                     grid[i][j] = Cell.PELLET;// Place a pellet with a probability of 0.3
                 }
             }
